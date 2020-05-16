@@ -5,14 +5,16 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk';
 import reducer from './store/rootReducer';
 import { Page1 } from './components/Page1';
 import { Page2 } from './components/Page2';
 
 const store = createStore(
-  reducer
+  reducer, 
+  applyMiddleware(thunk)
 );
 
 function App() {
