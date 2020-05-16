@@ -1,5 +1,4 @@
 # ROADMAP
-3. Saga
 5. Styled-Component
 
 /assets - если они участвуют в компиляции (svg иконки, шаблон html)

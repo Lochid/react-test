@@ -8,13 +8,15 @@ import {
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import reducer from './store/rootReducer';
 import { Page1 } from './components/Page1';
 import { Page2 } from './components/Page2';
 
+const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
-  reducer, 
-  applyMiddleware(thunk)
+  reducer,
+  applyMiddleware(thunk, sagaMiddleware)
 );
 
 function App() {
