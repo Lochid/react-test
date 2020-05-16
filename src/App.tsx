@@ -5,12 +5,20 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from './store/rootReducer';
 import { Page1 } from './components/Page1';
 import { Page2 } from './components/Page2';
 
+const store = createStore(
+  reducer
+);
+
 function App() {
   return (
-    <Router>
+    <Provider store={store}>
+      <Router>
         <Switch>
           <Route path="/page1">
             <Page1 />
@@ -20,7 +28,8 @@ function App() {
           </Route>
           <Redirect from='/' to='/page1' />
         </Switch>
-    </Router>
+      </Router>
+    </Provider>
   );
 }
 

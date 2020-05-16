@@ -1,0 +1,1 @@
+export const INCREMENT_COUNTER: string = 'INCREMENT_COUNTER';
