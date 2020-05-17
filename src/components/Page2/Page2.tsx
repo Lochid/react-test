@@ -2,6 +2,8 @@ import React from 'react';
 import {
     Link
 } from "react-router-dom";
+import RedBackground from '../../styles/RedBackground'
+
 
 interface Props {
     counter: number;
@@ -16,7 +18,9 @@ export default class Page2 extends React.Component<Props> {
             </div>
             <Link to="/page1">Page1</Link>
             <div>{this.props.counter}</div>
-            <button onClick={this.props.increment}>Increment</button>
+            <RedBackground>
+                <button onClick={this.props.increment}>Increment</button>
+            </RedBackground>
         </div>);
     }
 }

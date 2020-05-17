@@ -1,5 +1,4 @@
 # ROADMAP
-5. Styled-Component
 
 /assets - если они участвуют в компиляции (svg иконки, шаблон html)
 /public - если они не участвуют в процессе компиляции (fonts, icons)
