@@ -10,7 +10,7 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import reducer from './store/rootReducer';
-import { PostTable } from './components/Page1';
+import { PostTable } from './components/PostTable';
 import { Page2 } from './components/Page2';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -24,13 +24,13 @@ function App() {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route path="/page1">
+          <Route path="/postTable">
             <PostTable />
           </Route>
           <Route path="/page2">
             <Page2 />
           </Route>
-          <Redirect from='/' to='/page1' />
+          <Redirect from='/' to='/postTable' />
         </Switch>
       </Router>
     </Provider>

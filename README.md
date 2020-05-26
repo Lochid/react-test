@@ -1,7 +1,6 @@
 # ROADMAP
 1. API methods get and post with params thunk
 2. API methods get and post with params saga
-3. axios
 4. style theme
 5. mouse side effect
 

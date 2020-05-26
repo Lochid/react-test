@@ -16,7 +16,7 @@ export default class Page2 extends React.Component<Props> {
             <div>
                 It's page2
             </div>
-            <Link to="/page1">Page1</Link>
+            <Link to="/postTable">Page1</Link>
             <div>{this.props.counter}</div>
             <RedBackground>
                 <button onClick={this.props.increment}>Increment</button>
