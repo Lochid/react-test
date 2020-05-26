@@ -1,1 +1,1 @@
-export { default as Page1 } from './container';
+export { default as PostTable } from './container';

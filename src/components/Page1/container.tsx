@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 import { connect } from 'react-redux';
 import { incrementCounter } from '../../store/counter';
-import Page1 from './Page1';
+import PostTable from './PostTable';
 
 interface State {
   counter: {
@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch: Dispatch<{ type: string }>) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Page1);
+)(PostTable);
