@@ -2,7 +2,7 @@ import { Action, Post } from './types';
 import { POST_LIST_LOAD_PENDING, POST_LIST_LOAD_FAILED, POST_LIST_LOAD_SUCCESS } from './actions';
 
 const initialState = {
-    loading: true
+    loading: false
 };
 
 export const reducer = (state = initialState, action: Action) => {

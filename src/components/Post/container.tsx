@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 import { connect } from 'react-redux';
 import { incrementCounter } from '../../store/counter';
-import Page2 from './Page2';
+import Post from './Post';
 
 interface State {
   counter: {
@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch: Dispatch<{ type: string }>) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Page2);
+)(Post);

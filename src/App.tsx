@@ -11,7 +11,7 @@ import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import reducer from './store/rootReducer';
 import { PostTable } from './components/PostTable';
-import { Page2 } from './components/Page2';
+import { Post } from './components/Post';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -27,8 +27,8 @@ function App() {
           <Route path="/postTable">
             <PostTable />
           </Route>
-          <Route path="/page2">
-            <Page2 />
+          <Route path="/post/:id">
+            <Post />
           </Route>
           <Redirect from='/' to='/postTable' />
         </Switch>

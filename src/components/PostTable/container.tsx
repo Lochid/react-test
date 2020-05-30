@@ -15,7 +15,7 @@ const mapStateToProps = ({ postList }: State) => ({
   ...postList
 });
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<{ loading: true }, undefined, any>) => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<{ loading: false }, undefined, any>) => {
   return {
     fetchPostList: () => dispatch(fetchPostList()),
   }

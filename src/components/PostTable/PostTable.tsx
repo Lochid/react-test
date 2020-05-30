@@ -1,23 +1,27 @@
 import React from 'react';
 import { Post } from '../../store/postList/types';
+import { Link } from 'react-router-dom';
 
 interface Props {
     loading: boolean;
-    postList: Post[];
+    postList?: Post[];
     fetchPostList: () => void;
 }
 
 export default class PostTable extends React.Component<Props> {
 
     componentDidMount() {
-        this.props.fetchPostList();
+        if (!this.props.postList)
+            this.props.fetchPostList();
     }
 
     getRow(post: Post) {
         return (<tbody key={post.id}>
             <tr>
                 <td>
-                    {post.id}
+                    <Link to={`/post/${post.id}`}>
+                        {post.id}
+                    </Link>
                 </td>
                 <td>
                     {post.userId}
@@ -38,6 +42,9 @@ export default class PostTable extends React.Component<Props> {
     }
 
     getTable() {
+        if (this.props.postList == null)
+            return null;
+
         return (<table>
             <thead>
                 <tr>
