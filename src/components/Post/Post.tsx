@@ -1,29 +1,44 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     Link, useParams
 } from "react-router-dom";
-import RedBackground from '../../styles/RedBackground'
+import { Post as PostType } from '../../store/postList/types';
 
 
 interface Props {
-    counter: number;
-    increment: () => void;
+    fetchPostList: () => void;
+    getPostListById: (id: number) => PostType | undefined;
 }
 
 const Post = (props: Props) => {
     let { id } = useParams();
 
-    return (<div>
-        {id}
+    useEffect(() => {
+        if (!props.getPostListById(id))
+            props.fetchPostList();
+    });
+
+    const post = props.getPostListById(id);
+
+    return post ? (<div>
         <div>
-            It's page2
-            </div>
-        <Link to="/postTable">Page1</Link>
-        <div>{props.counter}</div>
-        <RedBackground>
-            <button onClick={props.increment}>Increment</button>
-        </RedBackground>
-    </div>);
+            <span>Id:</span>
+            <span>{post.id}</span>
+        </div>
+        <div>
+            <span>Title:</span>
+            <span>{post.userId}</span>
+        </div>
+        <div>
+            <span>Title:</span>
+            <span>{post.title}</span>
+        </div>
+        <div>
+            <span>Body:</span>
+            <span>{post.body}</span>
+        </div>
+        <Link to="/postTable">Back</Link>
+    </div>) : (<div>loading</div>);
 };
 
 export default Post;

@@ -1,21 +1,25 @@
-import { Dispatch } from 'react';
 import { connect } from 'react-redux';
-import { incrementCounter } from '../../store/counter';
+import { fetchPostList } from '../../store/postList';
 import Post from './Post';
+import { ThunkDispatch } from 'redux-thunk';
+import { Post as PostType } from '../../store/postList/types';
+import { getPostListById } from '../../store/postList/selectors';
+
 
 interface State {
-  counter: {
-    count: number;
+  postList: {
+    loading: boolean;
+    postList: PostType[];
   };
 }
 
-const mapStateToProps = ({ counter }: State) => ({
-  counter: counter.count,
+const mapStateToProps = (state: State) => ({
+  getPostListById: getPostListById(state),
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<{ type: string }>) => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<{ loading: false }, undefined, any>) => {
   return {
-    increment: () => dispatch(incrementCounter()),
+    fetchPostList: () => dispatch(fetchPostList()),
   }
 }
 
