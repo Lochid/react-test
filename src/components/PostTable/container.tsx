@@ -18,8 +18,8 @@ const mapStateToProps = ({ postList }: State) => ({
 const mapDispatchToProps = (dispatch: ThunkDispatch<{ loading: false }, undefined, any>) => {
   return {
     fetchPostList: () => dispatch(fetchPostList()),
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,

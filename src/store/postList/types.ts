@@ -1,6 +1,6 @@
 export interface Action {
     type: string;
-    payload?: Post[] | unknown
+    payload?: Post[] | Post | unknown
 }
 
 export interface Post {

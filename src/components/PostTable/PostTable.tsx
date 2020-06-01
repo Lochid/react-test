@@ -1,6 +1,7 @@
 import React from 'react';
 import { Post } from '../../store/postList/types';
 import { Link } from 'react-router-dom';
+import { CreatePost } from '../CreatePost'
 
 interface Props {
     loading: boolean;
@@ -68,6 +69,7 @@ export default class PostTable extends React.Component<Props> {
 
     render() {
         return (<div>
+            <CreatePost />
             {this.props.loading ? null : this.getTable()}
         </div>);
     }
