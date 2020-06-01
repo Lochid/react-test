@@ -2,12 +2,19 @@ import React from 'react';
 import { Post } from '../../store/postList/types';
 import { Link } from 'react-router-dom';
 import { CreatePost } from '../CreatePost'
+import styled, { ThemeProvider } from 'styled-components';
+import BoldTable from '../../styles/BoldTable';
 
 interface Props {
     loading: boolean;
     postList?: Post[];
     fetchPostList: () => void;
 }
+
+const Table = styled.table`
+  border: ${props => props.theme.size}px solid ${props => props.theme.color};
+`;
+
 
 export default class PostTable extends React.Component<Props> {
 
@@ -46,7 +53,7 @@ export default class PostTable extends React.Component<Props> {
         if (this.props.postList == null)
             return null;
 
-        return (<table>
+        return (<Table>
             <thead>
                 <tr>
                     <td>
@@ -64,13 +71,15 @@ export default class PostTable extends React.Component<Props> {
                 </tr>
             </thead>
             {this.getRowList(this.props.postList)}
-        </table>);
+        </Table>);
     }
 
     render() {
         return (<div>
             <CreatePost />
-            {this.props.loading ? null : this.getTable()}
+            <ThemeProvider theme={BoldTable}>
+                {this.props.loading ? null : this.getTable()}
+            </ThemeProvider>
         </div>);
     }
 }
