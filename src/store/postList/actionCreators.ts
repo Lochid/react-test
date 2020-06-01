@@ -1,35 +1,13 @@
 import {
-    POST_LIST_LOAD_PENDING, POST_LIST_LOAD_SUCCESS, POST_LIST_LOAD_FAILED,
-    POST_CREATE_PENDING, POST_CREATE_SUCCESS, POST_CREATE_FAILED,
+    POST_CREATE_PENDING, POST_CREATE_SUCCESS, POST_CREATE_FAILED, POST_LIST_LOAD,
 } from './actions';
 import { Post, Action } from './types';
-import { postList, createPost as createPostApi } from '../../api'
+import { createPost as createPostApi } from '../../api';
 import { Dispatch } from 'redux';
 
-
-const fetchPostListPending = () => ({
-    type: POST_LIST_LOAD_PENDING
+export const fetchPostList = () => ({
+    type: POST_LIST_LOAD
 });
-
-const fetchPostListSuccess = (postList: Post[]) => ({
-    type: POST_LIST_LOAD_SUCCESS,
-    payload: postList
-});
-
-const fetchPostListFailed = (error: unknown) => ({
-    type: POST_LIST_LOAD_FAILED,
-    payload: error
-});
-
-export const fetchPostList = () => {
-    return (dispatch: Dispatch<Action>) => {
-        dispatch(fetchPostListPending());
-
-        postList()
-            .then(({ data }: { data: Post[] }) => dispatch(fetchPostListSuccess(data)))
-            .catch((error: unknown) => dispatch(fetchPostListFailed(error)));
-    };
-};
 
 const createPostPending = () => ({
     type: POST_CREATE_PENDING

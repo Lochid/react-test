@@ -12,12 +12,15 @@ import createSagaMiddleware from 'redux-saga';
 import reducer from './store/rootReducer';
 import { PostTable } from './components/PostTable';
 import { Post } from './components/Post';
+import { watchFetchPostList } from './store/postList/saga';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   reducer,
   applyMiddleware(thunk, sagaMiddleware)
 );
+sagaMiddleware.run(watchFetchPostList);
+
 
 function App() {
   return (
